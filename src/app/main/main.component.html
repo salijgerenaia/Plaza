@@ -1,0 +1,62 @@
+<div class="blog-form">
+  <div [ngClass]="{ 'default-hidden': !isAddingPost }">
+    <div>
+      <input type="text" id="author-input" #author placeholder="Author" />
+    </div>
+    <div>
+      <input type="text" id="title-input" #title placeholder="Title" />
+    </div>
+    <div>
+      <textarea
+        id="description-input"
+        placeholder="Description"
+        #desc
+      ></textarea>
+    </div>
+
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="addElement(author, title, desc)"
+      class="addBtn"
+    >
+      Add Post
+    </button>
+  </div>
+  <section id="section">
+    <div class="example-button-row">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="toggleAddPost()"
+        class="toggle-button"
+      >
+        {{ isAddingPost ? "Cancel" : "Add Your Blog" }}
+      </button>
+    </div>
+  </section>
+</div>
+
+<div class="card-container">
+  <div class="card" *ngFor="let post of postsList" #element>
+    <h2 class="card-title">{{ post.title }}</h2>
+    <p class="card-date">{{ post.date | date : "short" }}</p>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="goToDetailsPage(post.id)"
+      class="details"
+    >
+      <a>Details</a>
+    </button>
+
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="remove(element)"
+      class="remove"
+    >
+      Remove
+    </button>
+  </div>
+</div>

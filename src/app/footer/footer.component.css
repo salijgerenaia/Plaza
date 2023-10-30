@@ -1,0 +1,19 @@
+.mat-toolbar {
+  text-align: #333;
+  color: #fff;
+  text-align: center;
+}
+
+.footer-content {
+  flex-grow: 1;
+}
+
+.social-link i.fab.fa-instagram {
+  color: #e1306c;
+}
+
+.social-link img {
+  width: 30px;
+  height: auto;
+  margin-right: 10px;
+}
